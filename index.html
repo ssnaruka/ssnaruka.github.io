@@ -1,1 +1,730 @@
-Hello from Surendra
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surendra Naruka | Senior Mobile Developer</title>
+    
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconify Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <style>
+        /* Base Settings */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0f; /* Deep dark background */
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Neon & Color Variables */
+        :root {
+            --neon-cyan: #0ef;
+            --neon-purple: #b026ff;
+            --bg-dark: #0a0a0f;
+            --bg-card: #141419;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom Utilities */
+        .text-neon {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
+        }
+        
+        .text-neon-purple {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px rgba(176, 38, 255, 0.3);
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
+        .btn-neon {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--neon-cyan);
+            color: #0a0a0f;
+            box-shadow: 0 0 20px var(--neon-cyan);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.5s ease;
+        }
+        
+        .btn-neon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: #0a0a0f;
+            z-index: -1;
+            transition: 0.5s ease;
+        }
+
+        .btn-neon:hover::before {
+            width: 100%;
+        }
+
+        .btn-neon:hover {
+            color: var(--neon-cyan);
+            box-shadow: none;
+            border: 1px solid var(--neon-cyan);
+        }
+
+        .btn-neon-purple {
+            background: var(--neon-purple);
+            box-shadow: 0 0 20px var(--neon-purple);
+            color: white;
+        }
+        
+        .btn-neon-purple:hover {
+            color: var(--neon-purple);
+            border: 1px solid var(--neon-purple);
+            background: transparent;
+            box-shadow: none;
+        }
+
+        /* Animations */
+        @keyframes floatImage {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .animate-float {
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        /* Timeline Styles */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+            opacity: 0.3;
+        }
+
+        /* Form Inputs */
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 4px;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#0ef] selection:text-black">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full p-5 md:px-[8%] flex justify-between items-center z-[100] bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/5" id="header">
+        <a href="#" class="text-2xl font-bold text-white tracking-tight">
+            surendranaruka<span class="text-neon">.</span>me
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">Home</a>
+            <a href="#about" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">About</a>
+            <a href="#skills" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">Skills</a>
+            <a href="#experience" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">Experience</a>
+            <a href="#projects" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">Projects</a>
+            <a href="#contact" class="nav-link text-sm font-medium text-gray-300 hover:text-[#0ef] transition-colors">Contact</a>
+        </nav>
+
+        <a href="#contact" class="hidden md:inline-flex px-5 py-2 border border-[#0ef] text-[#0ef] rounded-full text-xs font-semibold hover:bg-[#0ef] hover:text-black transition-all duration-300">
+            Let's Talk
+        </a>
+
+        <!-- Mobile Menu Icon -->
+        <button id="menu-icon" class="md:hidden text-2xl text-white cursor-pointer hover:text-[#0ef] transition">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-screen w-64 bg-[#141419] p-8 flex flex-col gap-6 md:hidden transform translate-x-full z-[101] shadow-[-10px_0_30px_rgba(0,0,0,0.5)] border-l border-white/10">
+        <div class="flex justify-end mb-4">
+            <button id="close-menu" class="text-white hover:text-[#0ef]">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
+        <a href="#home" class="text-lg font-medium text-white hover:text-[#0ef]">Home</a>
+        <a href="#about" class="text-lg font-medium text-white hover:text-[#0ef]">About</a>
+        <a href="#skills" class="text-lg font-medium text-white hover:text-[#0ef]">Skills</a>
+        <a href="#experience" class="text-lg font-medium text-white hover:text-[#0ef]">Experience</a>
+        <a href="#projects" class="text-lg font-medium text-white hover:text-[#0ef]">Projects</a>
+        <a href="#contact" class="text-lg font-medium text-white hover:text-[#0ef]">Contact</a>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-[8%] pt-28 md:pt-0 gap-12 relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-[#0ef] rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+        <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-[#b026ff] rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+
+        <div class="md:w-1/2 space-y-5 reveal-left z-10">
+            <div class="inline-block px-3 py-1 rounded-full border border-[#0ef]/30 bg-[#0ef]/5 text-[#0ef] text-xs font-semibold tracking-wider mb-2">
+                MOBILE APPLICATION DEVELOPER
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+                Surendra Naruka <span class="text-neon">Dev</span>
+            </h1>
+            <h3 class="text-2xl md:text-3xl font-semibold text-gray-300">
+                I Build <span id="typed-text" class="text-neon-purple"></span>
+            </h3>
+            <p class="text-sm md:text-base text-gray-400 max-w-lg leading-relaxed font-light font-['Inter']">
+                Android & Flutter Expert with 5+ years of experience in crafting high-performance, scalable mobile solutions. Focused on clean architecture and silky-smooth UI.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 mt-8">
+                <a href="#projects" class="btn-neon px-8 py-3 rounded-full text-sm">View Projects</a>
+                <a href="/assets/resume.pdf" target="_blank" class="px-8 py-3 rounded-full text-sm font-semibold text-white border border-white/20 hover:border-[#b026ff] hover:text-[#b026ff] transition-all duration-300 flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4"></i> Resume
+                </a>
+            </div>
+
+            <div class="flex gap-5 mt-8 items-center">
+                <a href="#" class="text-gray-400 hover:text-[#0ef] transition-transform hover:-translate-y-1"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-[#0ef] transition-transform hover:-translate-y-1"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-[#0ef] transition-transform hover:-translate-y-1"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <div class="h-px w-12 bg-gray-700"></div>
+            </div>
+        </div>
+
+        <div class="md:w-1/2 flex justify-center items-center reveal-right relative z-10">
+            <!-- Profile Image Container -->
+            <div class="relative w-72 h-72 md:w-[450px] md:h-[450px] flex items-center justify-center">
+                <!-- Outer rotating rings -->
+                <div class="absolute inset-0 border border-[#0ef]/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                <div class="absolute inset-4 border border-[#b026ff]/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                
+                <!-- Main Image -->
+                <div class="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-[#0ef] shadow-[0_0_30px_rgba(0,238,255,0.2)] animate-float bg-[#141419] relative z-20">
+                    <img src="https://ui-avatars.com/api/?name=Surendra+Naruka&background=0a0a0f&color=0ef&size=512&font-size=0.3" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=SN&background=0a0a0f&color=fff'"
+                         alt="Alexander Profile" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 md:px-[8%] bg-[#0a0a0f] relative">
+        <div class="glass-card max-w-6xl mx-auto rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 reveal-bottom border-l-4 border-l-[#0ef]">
+            <div class="md:w-1/3 flex justify-center">
+                <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-[#b026ff]/50 shadow-[0_0_20px_rgba(176,38,255,0.2)] rotate-3 hover:rotate-0 transition duration-500">
+                    <img src="https://ui-avatars.com/api/?name=Surendra+Naruka&background=141419&color=b026ff&size=512" alt="Profile Small" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="md:w-2/3 space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">About <span class="text-neon">Me</span></h2>
+                <p class="text-gray-300 leading-relaxed font-['Inter'] text-sm md:text-base">
+                    I am a Senior Mobile Application Developer driven by a passion for building robust, scalable, and user-centric applications. With expertise in <span class="text-[#0ef]">Android Native (Kotlin)</span> and <span class="text-[#0ef]">Flutter</span>, I transform complex requirements into seamless mobile experiences.
+                </p>
+                <p class="text-gray-300 leading-relaxed font-['Inter'] text-sm md:text-base">
+                    My development philosophy centers on <span class="text-white font-medium">Clean Architecture</span>, SOLID principles, and efficient state management. I pride myself on writing self-documenting code and optimizing app performance for millions of users.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="check-circle-2" class="text-[#0ef] w-5 h-5"></i>
+                        <span class="text-sm text-gray-400">Pixel-Perfect UI</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="check-circle-2" class="text-[#0ef] w-5 h-5"></i>
+                        <span class="text-sm text-gray-400">Performance Optimization</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="check-circle-2" class="text-[#0ef] w-5 h-5"></i>
+                        <span class="text-sm text-gray-400">Clean Architecture</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="check-circle-2" class="text-[#0ef] w-5 h-5"></i>
+                        <span class="text-sm text-gray-400">CI/CD Pipelines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 md:px-[8%] bg-[#0f0f14]">
+        <div class="text-center mb-16 reveal-top">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Technical <span class="text-neon-purple">Skills</span></h2>
+            <p class="text-gray-400 mt-2 text-sm">My technological arsenal</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Skill Category 1 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#0ef] transition-colors duration-300 reveal-bottom group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#0ef]/10 rounded-lg text-[#0ef]"><i data-lucide="smartphone"></i></div>
+                    <h3 class="text-lg font-bold">Mobile Development</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-[#1a1a20] rounded-lg p-2 px-3 text-sm text-gray-300 flex justify-between"><span>Kotlin & Java</span> <span class="text-[#0ef]">95%</span></div>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden"><div class="bg-[#0ef] h-full w-[95%]"></div></div>
+                    
+                    <div class="bg-[#1a1a20] rounded-lg p-2 px-3 text-sm text-gray-300 flex justify-between"><span>Flutter / Dart</span> <span class="text-[#0ef]">90%</span></div>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden"><div class="bg-[#0ef] h-full w-[90%]"></div></div>
+                    
+                    <div class="bg-[#1a1a20] rounded-lg p-2 px-3 text-sm text-gray-300 flex justify-between"><span>Android SDK</span> <span class="text-[#0ef]">95%</span></div>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden"><div class="bg-[#0ef] h-full w-[95%]"></div></div>
+                </div>
+            </div>
+
+            <!-- Skill Category 2 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#b026ff] transition-colors duration-300 reveal-bottom group" style="transition-delay: 100ms;">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#b026ff]/10 rounded-lg text-[#b026ff]"><i data-lucide="layers"></i></div>
+                    <h3 class="text-lg font-bold">Architecture</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">MVVM / MVI</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Clean Architecture</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Dependency Injection</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Modularization</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Design Patterns</span>
+                </div>
+            </div>
+
+            <!-- Skill Category 3 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#0ef] transition-colors duration-300 reveal-bottom group" style="transition-delay: 200ms;">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#0ef]/10 rounded-lg text-[#0ef]"><i data-lucide="database"></i></div>
+                    <h3 class="text-lg font-bold">Data & Network</h3>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-400 font-['Inter']">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Room DB / SQLite / Realm</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Firebase / Firestore</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Retrofit / Ktor / GraphQL</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> WebSockets / Socket.io</li>
+                </ul>
+            </div>
+
+            <!-- Skill Category 4 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#b026ff] transition-colors duration-300 reveal-bottom group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#b026ff]/10 rounded-lg text-[#b026ff]"><i data-lucide="cpu"></i></div>
+                    <h3 class="text-lg font-bold">System & Background</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Coroutines & Flow</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">WorkManager</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Services</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">In-App Purchases</span>
+                </div>
+            </div>
+
+            <!-- Skill Category 5 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#0ef] transition-colors duration-300 reveal-bottom group" style="transition-delay: 100ms;">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#0ef]/10 rounded-lg text-[#0ef]"><i data-lucide="map-pin"></i></div>
+                    <h3 class="text-lg font-bold">Maps & Services</h3>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-400 font-['Inter']">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Google Maps SDK</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Geolocation & Tracking</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> Google Drive API</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-[#0ef]"></i> OAuth 2.0</li>
+                </ul>
+            </div>
+
+            <!-- Skill Category 6 -->
+            <div class="glass-card p-6 rounded-xl hover:border-[#b026ff] transition-colors duration-300 reveal-bottom group" style="transition-delay: 200ms;">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-[#b026ff]/10 rounded-lg text-[#b026ff]"><i data-lucide="video"></i></div>
+                    <h3 class="text-lg font-bold">Media & Tools</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">ExoPlayer</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Agora SDK</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">ML Kit</span>
+                    <span class="px-3 py-1 bg-[#1a1a20] border border-white/5 rounded-full text-xs text-gray-300">Git & CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 md:px-[8%] bg-[#0a0a0f] relative overflow-hidden">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16 reveal-top">Work <span class="text-neon">Experience</span></h2>
+        
+        <div class="max-w-4xl mx-auto relative timeline-line">
+            <!-- Job 1 -->
+            <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-8 reveal-bottom group">
+                <div class="md:w-5/12 text-right order-1 md:order-1">
+                    <h3 class="text-xl font-bold text-white">Senior Mobile Application Developer</h3>
+                    <p class="text-[#0ef] font-medium text-sm">Akal Information Systems Ltd.</p>
+                    <p class="text-gray-500 text-xs mt-1">2024 - Present</p>
+                </div>
+                
+                <div class="order-2 md:order-2 w-10 h-10 bg-[#0a0a0f] border-2 border-[#0ef] rounded-full flex items-center justify-center shadow-[0_0_15px_#0ef] z-20">
+                    <div class="w-3 h-3 bg-[#0ef] rounded-full"></div>
+                </div>
+
+                <div class="md:w-5/12 order-3 md:order-3">
+                    <div class="glass-card p-5 rounded-lg border-l-2 border-l-[#0ef] transition hover:bg-white/5">
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Leading a team of 5 developers in building a fintech super-app. Reduced app load time by 40% using modular architecture and Coroutines. Implemented complex chart visualizations and biometric authentication.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-8 reveal-bottom group">
+                <div class="md:w-5/12 order-3 md:order-1">
+                    <div class="glass-card p-5 rounded-lg border-r-2 border-r-[#b026ff] text-right transition hover:bg-white/5">
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Developed and deployed 3 enterprise-level Flutter applications for logistics clients. Integrated Google Maps API for real-time fleet tracking and established offline-first data synchronization using Hive.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="order-2 md:order-2 w-10 h-10 bg-[#0a0a0f] border-2 border-[#b026ff] rounded-full flex items-center justify-center shadow-[0_0_15px_#b026ff] z-20">
+                    <div class="w-3 h-3 bg-[#b026ff] rounded-full"></div>
+                </div>
+
+                <div class="md:w-5/12 text-left order-1 md:order-3">
+                    <h3 class="text-xl font-bold text-white">Mobile Application Developer</h3>
+                    <p class="text-[#b026ff] font-medium text-sm">TiMAD Consulting and IT Solutions LLP</p>
+                    <p class="text-gray-500 text-xs mt-1">2023 - 2024</p>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 reveal-bottom group">
+                <div class="md:w-5/12 text-right order-1 md:order-1">
+                    <h3 class="text-xl font-bold text-white">Mobile Application Developer</h3>
+                    <p class="text-[#0ef] font-medium text-sm">GTS Infosoft LLP.</p>
+                    <p class="text-gray-500 text-xs mt-1">2021 - 2023</p>
+                </div>
+                
+                <div class="order-2 md:order-2 w-10 h-10 bg-[#0a0a0f] border-2 border-[#0ef] rounded-full flex items-center justify-center shadow-[0_0_15px_#0ef] z-20">
+                    <div class="w-3 h-3 bg-[#0ef] rounded-full"></div>
+                </div>
+
+                <div class="md:w-5/12 order-3 md:order-3">
+                    <div class="glass-card p-5 rounded-lg border-l-2 border-l-[#0ef] transition hover:bg-white/5">
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Assisted in the maintenance of legacy Java Android apps. Migrated key modules to Kotlin. Implemented UI redesigns and fixed critical bugs in the payment flow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 md:px-[8%] bg-[#0f0f14]">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16 reveal-top">Featured <span class="text-neon-purple">Projects</span></h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="group relative rounded-xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300 reveal-bottom">
+                <div class="h-48 bg-[#1a1a20] flex items-center justify-center relative overflow-hidden">
+                    <!-- Placeholder Project UI -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80 z-10"></div>
+                    <i data-lucide="bar-chart-2" class="w-16 h-16 text-gray-600 group-hover:text-[#0ef] transition-colors z-0"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-white">FinTrack Pro</h3>
+                        <a href="#" class="text-gray-400 hover:text-[#0ef]"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-xs mb-4 h-10 overflow-hidden">A comprehensive finance tracking app with real-time sync, chart visualization, and biometric security.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Flutter</span>
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Firebase</span>
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Bloc</span>
+                    </div>
+                    <a href="#" class="w-full btn-neon py-2 rounded text-sm">View Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="group relative rounded-xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300 reveal-bottom" style="transition-delay: 100ms;">
+                <div class="h-48 bg-[#1a1a20] flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80 z-10"></div>
+                    <i data-lucide="music" class="w-16 h-16 text-gray-600 group-hover:text-[#b026ff] transition-colors z-0"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-white">Sonic Stream</h3>
+                        <a href="#" class="text-gray-400 hover:text-[#b026ff]"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-xs mb-4 h-10 overflow-hidden">Native Android music streaming player utilizing ExoPlayer, MediaSession services, and offline caching.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-[#b026ff]/10 text-[#b026ff] rounded text-[10px] font-semibold">Kotlin</span>
+                        <span class="px-2 py-1 bg-[#b026ff]/10 text-[#b026ff] rounded text-[10px] font-semibold">ExoPlayer</span>
+                        <span class="px-2 py-1 bg-[#b026ff]/10 text-[#b026ff] rounded text-[10px] font-semibold">Room</span>
+                    </div>
+                    <a href="#" class="w-full btn-neon-purple py-2 rounded text-sm transition-all duration-300">View Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="group relative rounded-xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300 reveal-bottom" style="transition-delay: 200ms;">
+                <div class="h-48 bg-[#1a1a20] flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80 z-10"></div>
+                    <i data-lucide="message-square" class="w-16 h-16 text-gray-600 group-hover:text-[#0ef] transition-colors z-0"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-white">Chatify</h3>
+                        <a href="#" class="text-gray-400 hover:text-[#0ef]"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-xs mb-4 h-10 overflow-hidden">Real-time chat application using WebSockets, clean architecture, and push notifications.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Kotlin</span>
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Socket.io</span>
+                        <span class="px-2 py-1 bg-[#0ef]/10 text-[#0ef] rounded text-[10px] font-semibold">Koin</span>
+                    </div>
+                    <a href="#" class="w-full btn-neon py-2 rounded text-sm">View Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certs -->
+    <section class="py-24 px-6 md:px-[8%] bg-[#0a0a0f]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="reveal-left">
+                <h3 class="text-2xl font-bold text-white mb-6 border-l-4 border-[#0ef] pl-3">Education</h3>
+                <div class="glass-card p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white">BTech in Computer Science</h4>
+                    <p class="text-gray-400 text-sm">Jodhpur Institute of Engineering & Technology, Jodhpur</p>
+                    <p class="text-[#0ef] text-xs mt-2">2013 - 2017</p>
+                    <p class="text-gray-500 text-xs mt-3">Graduated with Honors. Specialized in Mobile Computing and Distributed Systems.</p>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <h3 class="text-2xl font-bold text-white mb-6 border-l-4 border-[#b026ff] pl-3">Certifications</h3>
+                <div class="glass-card p-6 rounded-xl space-y-4">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="award" class="text-[#b026ff]"></i>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Associate Android Developer</h4>
+                            <p class="text-xs text-gray-500">Google Developers</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-white/5"></div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="award" class="text-[#b026ff]"></i>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Flutter Certified Specialist</h4>
+                            <p class="text-xs text-gray-500">Udemy / Dart Academy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 md:px-[8%] bg-[#0f0f14] relative">
+        <div class="text-center mb-12 reveal-top">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Get in <span class="text-neon">Touch</span></h2>
+            <p class="text-gray-400 mt-2 text-sm">Let's build something amazing together</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto glass-card p-8 md:p-10 rounded-2xl reveal-bottom">
+            <form id="contactForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs text-gray-400 ml-1">Full Name</label>
+                        <input type="text" id="name" required class="w-full p-3 bg-[#0a0a0f] rounded-lg text-white border border-white/10 focus:outline-none input-glow transition-all" placeholder="John Doe">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs text-gray-400 ml-1">Email Address</label>
+                        <input type="email" id="email" required class="w-full p-3 bg-[#0a0a0f] rounded-lg text-white border border-white/10 focus:outline-none input-glow transition-all" placeholder="john@example.com">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs text-gray-400 ml-1">Subject</label>
+                    <input type="text" id="subject" required class="w-full p-3 bg-[#0a0a0f] rounded-lg text-white border border-white/10 focus:outline-none input-glow transition-all" placeholder="Project Inquiry">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs text-gray-400 ml-1">Message</label>
+                    <textarea id="message" rows="5" required class="w-full p-3 bg-[#0a0a0f] rounded-lg text-white border border-white/10 focus:outline-none input-glow transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                </div>
+                
+                <div class="text-center pt-4">
+                    <button type="submit" class="btn-neon px-12 py-3 rounded-full text-base w-full md:w-auto">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0f] py-8 px-6 md:px-[8%] border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-center md:text-left">
+            <p class="text-gray-500 text-sm">&copy; 2025 Surendra Naruka. All Rights Reserved.</p>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <a href="#" class="text-gray-500 hover:text-[#0ef] text-sm transition">Privacy Policy</a>
+            <a href="#" class="inline-flex justify-center items-center w-10 h-10 bg-[#1a1a20] rounded-lg text-[#0ef] hover:bg-[#0ef] hover:text-black transition-all duration-300">
+                <i data-lucide="arrow-up" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Icons
+            lucide.createIcons();
+
+            // 2. Typed.js
+            new Typed('#typed-text', {
+                strings: ['Mobile Apps', 'Scalable Solutions', 'Seamless UX', 'Clean Code'],
+                typeSpeed: 80,
+                backSpeed: 50,
+                backDelay: 2000,
+                loop: true
+            });
+
+            // 3. Scroll Reveal Configuration
+            const sr = ScrollReveal({ 
+                distance: '60px',
+                duration: 2000,
+                delay: 200,
+                reset: false // Keep animations once loaded
+            });
+
+            sr.reveal('.reveal-top', { origin: 'top' });
+            sr.reveal('.reveal-bottom', { origin: 'bottom' });
+            sr.reveal('.reveal-left', { origin: 'left' });
+            sr.reveal('.reveal-right', { origin: 'right' });
+
+            // 4. Mobile Menu Logic
+            const menuIcon = document.getElementById('menu-icon');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('#mobile-menu a');
+
+            function toggleMenu(show) {
+                if (show) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            menuIcon.addEventListener('click', () => toggleMenu(true));
+            closeMenu.addEventListener('click', () => toggleMenu(false));
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+
+            // 5. Navbar Scroll Active State
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-[#0ef]');
+                    link.classList.add('text-gray-300');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('text-[#0ef]');
+                        link.classList.remove('text-gray-300');
+                    }
+                });
+            });
+
+            // 6. Form Validation Simulation
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button');
+                const originalText = btn.innerText;
+                
+                // Simulate sending
+                btn.innerText = 'Sending...';
+                btn.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    btn.innerText = 'Message Sent!';
+                    btn.style.background = '#0a0a0f';
+                    btn.style.color = '#0ef';
+                    btn.style.border = '1px solid #0ef';
+                    btn.style.opacity = '1';
+                    
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = 'var(--neon-cyan)';
+                        btn.style.color = '#0a0a0f';
+                        btn.style.border = 'none';
+                    }, 3000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
